@@ -13,12 +13,22 @@ body{
     background-color: #fff !important;
 }
 .fa-compass {
-    color: #f5316c ;
+    color: #007ea7 ;
     font-size: 2rem ;
+    
 }
-.nav-link{
-    color: #222222 !important;
+.rentX{
+    color: #0286b3 !important;
+    font-weight: 800 !important;
+    font-size: large !important;
+    font-family:Arial, Helvetica, sans-serif !important;
+    
 }
+
+/* .nav-link{
+    color: #0286b3 !important;
+    
+} */
 
 /* footer */
 .f-info-links a{
@@ -87,14 +97,22 @@ body{
 
 /* New page */
 .add-btn {
-    background-color: #f5316c !important;
+    background-color: #007ea7 !important;
     border: none !important; 
+    background: linear-gradient(to right top, #0b6280,
+    #0bafc5,
+    #0e679bfd
+    ) !important;
 }
 
 /* Edit page */
 .edit-btn {
-    background-color:  #f5316c !important;
+    background-color:  #007ea7 !important;
     border: none !important;
+    background: linear-gradient(to right top, #0b6280,
+    #0bafc5,
+    #0e679bfd
+    ) !important;
 }
 
 /* Show page */
