@@ -2,7 +2,6 @@ if(process.env.NODE_ENV != "production") {
     require("dotenv").config();
 }
 
-
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -44,6 +43,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.engine('ejs',ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const store = MongoStore.create({
     mongoUrl: dbUrl,
@@ -80,28 +80,12 @@ passport.use(new LocalStrategy(User.authenticate()));
  passport.deserializeUser(User.deserializeUser());
 
 
-
-
-// app.get("/", (req, res) => {
-//     res.send("hello from root");
-// });
-
 app.use((req, res, next) => {
     res.locals.success = req.flash("success");
     res.locals.error= req.flash("error");
     res.locals.currUser = req.user;
     next();
 });
-
-app.get("/demouser", async(req, res) => {
-    let fakeUser =  new User({
-        email: "student@gmail.com",
-        username: "delta-student",
-    });
-    let registeredUser = await User.register(fakeUser, "helloworld");
-    res.send(registeredUser);
-});
-
 
 
 app.use("/listings", listingsRouter);
@@ -122,27 +106,3 @@ app.listen(8080, () => {
     console.log("server is listening to port 8080");
 });
 
-
-
-
-
-
-
-
-
-
-
-
-// app.get("/testListing", async(req, res) => {
-//     let sampleListing = new Listing({
-//         title : "My new Villa",
-//         description : "By the Beach",
-//         price : 1200,
-//         location : "Goa",
-//         country : "India",
-//     });
-
-//   await sampleListing.save();
-//   console.log("Sample saved"); 
-//   res.send("Successful.."); 
-// });

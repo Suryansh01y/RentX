@@ -3,6 +3,21 @@
     .showimg{
         height: 22em;
     }
+
+    .map-container{
+    width: 700px;
+    margin: 0 auto;
+    }
+
+    #map{
+        width: 100%;
+        max-width: 700px;
+        height: 500px;
+}
+    
+    #map_heading{
+        margin-bottom: 10px;
+    }
 </style>
 <div class="row">
     <div class="col-8 offset-3 mt-3">
@@ -91,19 +106,9 @@
    <% } %>
     </div>
 
-<!-- <div class="col-6 offset-3 mb-3">
-    <h3>Where you'll be</h3>
-    <div id="map"></div>
-</div>
-</div> -->
+    <div class="map-container">
+     <h4 id="map_heading">Explore on Map</h4>
+     <iframe src="https://maps.google.com/maps?q=<%= encodeURIComponent(listing.location) %>&output=embed"
+       " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="map"></iframe> 
+    </div>
 
-<!-- <script>
-	let mapToken = "<%= process.env.MAP_TOKEN %>" ;
-    mapboxgl.accessToken = mapToken;
-    const map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style : "mapbox://styles/mapbox/streets-v12", 
-        center: [77.209, 28.6139], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-        zoom: 9 // starting zoom
-    });
-</script> -->
